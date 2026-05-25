@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Typing Master Pro</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #00ffcc;
+}
+
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#text {
+    background: #222;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+textarea {
+    width: 80%;
+    height: 120px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: yellow;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🔥 Typing Master Pro</h1>
+
+<select id="level">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+</select>
+
+<button onclick="startGame()">Start</button>
+
+<div id="text">Click Start to begin</div>
+
+<textarea id="input" placeholder="Start typing here..."></textarea>
+
+<br>
+<button onclick="check()">Check Result</button>
+
+<div id="result"></div>
+
+<script>
+
+let startTime;
+let currentText = "";
+
+let texts = {
+    easy: "I am learning typing",
+    medium: "Typing speed improves with daily practice and focus",
+    hard: "JavaScript and web development require strong typing speed and accuracy"
+};
+
+function startGame() {
+    let level = document.getElementById("level").value;
+    currentText = texts[level];
+    document.getElementById("text").innerText = currentText;
+
+    document.getElementById("input").value = "";
+    document.getElementById("result").innerText = "";
+
+    startTime = new Date().getTime();
+}
+
+function check() {
+    let typed = document.getElementById("input").value;
+    let endTime = new Date().getTime();
+
+    let timeTaken = (endTime - startTime) / 1000; // seconds
+    let words = typed.trim().split(" ").length;
+
+    let wpm = Math.round((words / timeTaken) * 60);
+
+    // Accuracy
+    let correct = 0;
+    let originalWords = currentText.split(" ");
+    let typedWords = typed.split(" ");
+
+    for (let i = 0; i < originalWords.length; i++) {
+        if (originalWords[i] === typedWords[i]) {
+            correct++;
+        }
+    }
+
+    let accuracy = Math.round((correct / originalWords.length) * 100);
+
+    // Score out of 100
+    let score = Math.min(100, Math.round((wpm + accuracy) / 2));
+
+    document.getElementById("result").innerHTML =
+        "⏱ Time: " + timeTaken.toFixed(2) + " sec<br>" +
+        "⚡ WPM: " + wpm + "<br>" +
+        "🎯 Accuracy: " + accuracy + "%<br>" +
+        "🏆 Score: " + score + "/100";
+}
+
+</script>
+
+</body>
+</html>
