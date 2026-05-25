@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typing Master</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Typing Speed Test</h1>
+
+<p id="text">
+The quick brown fox jumps over the lazy dog.
+</p>
+
+<textarea id="input"></textarea>
+
+<button onclick="checkTyping()">
+Check Speed
+</button>
+
+<h2 id="result"></h2>
+
+<script src="script.js"></script>
+
+</body>
+</html>
