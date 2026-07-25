@@ -1,0 +1,32 @@
+
+==================================================
+ SCHOOL STUDENT RECORD
+==================================================
+Name            : a
+Father Name     : b
+Age             : 18
+Roll Number     : 30
+Phone Number    : 03
+Location        : peshawar
+Previous Class  : 9
+New Class       : 10
+Present Days    : 15
+Absent Days     : 11
+Attendance      : 57.69%
+==================================================
+
+==================================================
+ SCHOOL STUDENT RECORD
+==================================================
+Name            : musa
+Father Name     : AJMAL
+Age             : 19
+Roll Number     : 1000
+Phone Number    : 0987654
+Location        : khjan
+Previous Class  : 9
+New Class       : 10
+Present Days    : 1000
+Absent Days     : 500
+Attendance      : 66.67%
+==================================================
